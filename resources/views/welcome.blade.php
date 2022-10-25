@@ -13,15 +13,12 @@
   
 
 
-
-	
-
 	<!-- ** ** -->
 	<meta property="og:url"                content="{{url('/')}}" />
 	<meta property="og:type"               content="article" />
 	<meta property="og:title"              content="{{$title}}" />
 	<meta property="og:description"        content="{{$title}}" />
-	<meta property="og:image" content="{{$image}}" />
+	<meta property="og:image" 			   content="{{$image}}" />
 	
   <!-- favicon -->
   <link href="{{ URL::to('mages/favicon.png')}}" rel="shortcut icon">

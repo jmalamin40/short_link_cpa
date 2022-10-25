@@ -70,7 +70,7 @@ class HomeController extends Controller
         $data =[];
         $data['short_link'] = Session::get('short_link');
         if($link){
-            $shortlink = Shortlink::select('to_url')->where('code', '=', $link)->get();
+            $shortlink = Shortlink::select('to_url', 'thumbnail_url', 'title')->where('code', '=', $link)->get();
             if( (int)count($shortlink)> (int)0){
                 $data['image'] =  $shortlink[0]->thumbnail_url;
                 $data['title'] =  $shortlink[0]->title;
@@ -78,6 +78,7 @@ class HomeController extends Controller
             }
             
         }
+      
         return view('welcome', $data);
     }
 
