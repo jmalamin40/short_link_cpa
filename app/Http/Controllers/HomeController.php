@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 
-use Request;
 use App\Models\Shortlink;
 use Illuminate\Support\Facades\Session;
 use Redirect;
