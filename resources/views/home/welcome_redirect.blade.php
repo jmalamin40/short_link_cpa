@@ -10,6 +10,9 @@
     <meta property="og:image" 			   content="{{$image}}" />
     <meta property="og:description"        content="{{$title}}" />
     <meta property="og:url"                content="{{url('/')}}" />
+    <meta name="twitter:card"               content="summary_large_image" />
+    <meta name="twitter:title"              content="{{$title}}" />
+    <meta name="twitter:description"        content="{{$title}}" />
     <meta name="twitter:image" 			   content="{{$image}}" />
        
     <meta property='og:image:width' content='1200' />
