@@ -79,7 +79,7 @@ class HomeController extends Controller
             
         }
       
-        return view('welcome', $data);
+        return view('home.welcome_redirect', $data);
     }
 
 
