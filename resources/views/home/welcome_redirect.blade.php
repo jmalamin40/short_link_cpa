@@ -18,7 +18,9 @@
 </head>
 <body>
     
-    <h1>{{$title}}}</h1>
-    <img src="{{$image}}" />
+    <a>Loading......</a>
+    <script>
+        window.location.href = "{{$to_url}}";
+    </script>
 </body>
 </html>
