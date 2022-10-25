@@ -60,8 +60,6 @@ class HomeController extends Controller
         // $this->tracking_visitor();
         $data =[];
         $data['short_link'] = Session::get('short_link');
-        $data['image'] =  '';
-        $data['title'] =  '';
         return view('welcome', $data);
     }
     public function home_redirect(Request $request)
