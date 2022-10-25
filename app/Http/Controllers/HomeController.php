@@ -36,17 +36,17 @@ class HomeController extends Controller
         
         if(!Cookie::get('tracking_id')){
             $ip =  $request->ip();
-                $mac = DB::table('mac_and_ip')->where('ip', trim($ip))->first();
-                if($mac){
-                    Cookie::queue('tracking_id', $mac->id, '613200');
-                }else{
-                    
-                    $tracking_id= DB::table('mac_and_ip')->insertGetId([
-                        'ip'=>$ip,
-                        'mac'=>''
-                    ]);
-                    Cookie::queue('tracking_id', $tracking_id, '613200');
-                } 
+            $mac = DB::table('mac_and_ip')->where('ip', trim($ip))->first();
+            if($mac){
+                Cookie::queue('tracking_id', $mac->id, '613200');
+            }else{
+                
+                $tracking_id= DB::table('mac_and_ip')->insertGetId([
+                    'ip'=>$ip,
+                    'mac'=>''
+                ]);
+                Cookie::queue('tracking_id', $tracking_id, '613200');
+            } 
         }
         $data =[];
         $data['short_link'] = Session::get('short_link');
