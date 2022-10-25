@@ -18,7 +18,7 @@
 </head>
 <body>
     
-    <h1>Short link Generator with custom thumbnail and title 100% Free membership</h1>
-    <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" />
+    <h1>{{$title}}}</h1>
+    <img src="{{$image}}" />
 </body>
 </html>
