@@ -60,7 +60,8 @@ class HomeController extends Controller
         // $this->tracking_visitor();
         $data =[];
         $data['short_link'] = Session::get('short_link');
-      
+        $data['image'] =  '';
+        $data['title'] =  '';
         return view('welcome', $data);
     }
     public function home_redirect(Request $request)
@@ -71,11 +72,16 @@ class HomeController extends Controller
         if($link){
             $shortlink = Shortlink::select('to_url')->where('code', '=', $link)->get();
             if( (int)count($shortlink)> (int)0){
-                return Redirect::to($shortlink[0]->to_url);
+                $data['image'] =  $shortlink[0]->thumbnail_url;
+                $data['title'] =  $shortlink[0]->title;
+                // return Redirect::to($shortlink[0]->to_url);
             }
             
         }
+        return view('welcome', $data);
     }
+
+
     public function generator(Request $request)
     {
        try{

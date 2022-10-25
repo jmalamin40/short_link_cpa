@@ -11,6 +11,11 @@
   <meta name="description" content="Free Short Link Generate with custom thumbnail and title, now you can share cpa link without landing page">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   
+ 	<meta property="og:title" content="{{$title}}" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="{{url('/')}}" />
+	<meta property="og:image" content="{{$image}}" />
+
 
   <!-- favicon -->
   <link href="{{ URL::to('mages/favicon.png')}}" rel="shortcut icon">
