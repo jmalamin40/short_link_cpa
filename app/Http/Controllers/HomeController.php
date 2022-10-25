@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Redirect;
 use DB;
 use Cookie;
+use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     /**
@@ -60,7 +61,7 @@ class HomeController extends Controller
         // $this->tracking_visitor();
         $data =[];
         $data['short_link'] = Session::get('short_link');
-        return view('welcome', $data);
+        return view('home.home', $data);
     }
     public function home_redirect(Request $request)
     {
@@ -91,6 +92,8 @@ class HomeController extends Controller
         $Shortlink->title          = $request->title;
         $Shortlink->code           = substr(md5(mt_rand()), 0, 7);
         $Shortlink->tracking_id    = Cookie::get('tracking_id');
+        $Shortlink->user_id        = Auth::id();
+        
       
         if($Shortlink->save()){
             Session::put('short_link', url('/').'/'.$Shortlink->code);
