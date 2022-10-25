@@ -7,7 +7,7 @@ $( document ).ready(function() {
             }
           });
           var formData =$('#link-generator').serialize();
-          console.log(formData, '-formData')
+          
           $.ajax({
             type: "POST",
             url: base_url + '/generator-link',
@@ -35,3 +35,14 @@ $( document ).ready(function() {
         
     })
 });
+
+function copyToClick(id){
+    
+    var copyText = document.getElementById("selector_"+id);
+    copyText.select();
+    document.execCommand("copy");
+        
+        // setTimeout(function() { 
+        //     $('#copy_data').html('COPY');
+        // }, 1000);
+}

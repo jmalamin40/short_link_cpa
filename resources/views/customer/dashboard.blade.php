@@ -133,9 +133,11 @@
             </thead>
             <tbody>
                 @foreach($shortlinks as $link)
+                
               <tr>
-                <td class="product-thumb">
+                <td class="product-thumb" style="position: relative;">
                   <img width="80px" height="auto" src="{{$link->thumbnail_url}}" alt="image">
+                  <input type="text" style="opacity:0;position:absolute;" value="{{url('/')}}/{{$link->code}}" id="selector_{{$link->id}}">
                 </td>
                 <td class="product-category"><span class="categories">{{$link->title}}</span></td>
                 <td class="product-details">
@@ -145,8 +147,8 @@
                   <div class="">
                     <ul class="list-inline justify-content-center">
                       <li class="list-inline-item">
-                        <a data-toggle="tooltip" data-placement="top" title="view" class="view" >
-                          <i class="fa fa-eye"></i>
+                        <a data-toggle="tooltip" onclick="copyToClick('{{$link->id}}')" style="cursor:pointer" data-placement="top" title="view" class="view" >
+                          <i class="fa fa-files-o"></i>
                         </a>
                       </li>
                     </ul>
