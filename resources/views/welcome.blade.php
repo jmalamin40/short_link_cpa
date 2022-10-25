@@ -2,23 +2,12 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 
-  <!-- ** Basic Page Needs ** -->
-  <meta charset="utf-8">
   <title>Free Short Link Generate with custom thumbnail and title </title>
   <meta name="_token" content="{{ csrf_token() }}">
   <!-- ** Mobile Specific Metas ** -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Free Short Link Generate with custom thumbnail and title, now you can share cpa link without landing page">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  
-
-
-	<!-- ** ** -->
-	
-
-
-	
-	
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<meta property="og:title"              content="{{$title}}" />
     <meta property="og:image" 			   content="{{$image}}" />
