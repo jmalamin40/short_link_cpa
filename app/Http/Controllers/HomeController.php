@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use App\Models\Shortlink;
 use Illuminate\Support\Facades\Session;
 use Redirect;
@@ -41,7 +41,7 @@ class HomeController extends Controller
                     if($mac){
                         Cookie::queue('tracking_id', $mac->id, '613200');
                     }else{
-                        $ip = $request->ip();
+                        $ip =  $request->ip();
                         $tracking_id= DB::table('mac_and_ip')->insertGetId([
                             'mac'=>$mac_large,
                             'ip'=>$ip
@@ -57,7 +57,14 @@ class HomeController extends Controller
     public function home(Request $request)
     {
         
-        $this->tracking_visitor();
+        // $this->tracking_visitor();
+        $data =[];
+        $data['short_link'] = Session::get('short_link');
+      
+        return view('welcome', $data);
+    }
+    public function home_redirect(Request $request)
+    {
         $link = trim($request->link);
         $data =[];
         $data['short_link'] = Session::get('short_link');
@@ -68,7 +75,6 @@ class HomeController extends Controller
             }
             
         }
-        return view('welcome', $data);
     }
     public function generator(Request $request)
     {

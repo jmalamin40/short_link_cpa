@@ -15,7 +15,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'home']);
-Route::get('/{link}', [HomeController::class, 'home']);
+Route::get('/{link}', [HomeController::class, 'home_redirect']);
 
 Route::post('/generator-link', [HomeController::class, 'generator']);
 
