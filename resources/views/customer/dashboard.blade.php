@@ -137,9 +137,9 @@
                 <td class="product-thumb">
                   <img width="80px" height="auto" src="{{$link->thumbnail_url}}" alt="image">
                 </td>
-                <td class="product-category"><span class="categories">Laptops</span></td>
+                <td class="product-category"><span class="categories">{{$link->title}}</span></td>
                 <td class="product-details">
-                    <h3 class="title">Macbook Pro 15inch</h3>
+                    <h3 class="title"><a href="{{url('/')}}/{{$link->code}}">{{url('/')}}/{{$link->code}}</a></h3>
                 </td>
                 <td class="action" data-title="Action">
                   <div class="">
