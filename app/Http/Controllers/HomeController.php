@@ -30,35 +30,24 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function tracking_visitor(){
-        if(!Cookie::get('tracking_id')){
-            $shellexec = shell_exec('getmac'); 
-            $shellexec= explode('_{', $shellexec);
-            if(count($shellexec)>0){
-                $shellexec= explode('}', $shellexec[1]);
-                if(count($shellexec)>0){
-                    $mac_large = $shellexec[0];
-                    $mac = DB::table('mac_and_ip')->where('mac', trim($mac_large))->first();
-                    if($mac){
-                        Cookie::queue('tracking_id', $mac->id, '613200');
-                    }else{
-                        $ip =  $request->ip();
-                        $tracking_id= DB::table('mac_and_ip')->insertGetId([
-                            'mac'=>$mac_large,
-                            'ip'=>$ip
-                        ]);
-                        Cookie::queue('tracking_id', $tracking_id, '613200');
-                    }
-                }
-            
-            }
-        }
-        return true;
-    }
+  
     public function home(Request $request)
     {
         
-        // $this->tracking_visitor();
+        if(!Cookie::get('tracking_id')){
+            $ip =  $request->ip();
+                $mac = DB::table('mac_and_ip')->where('ip', trim($ip))->first();
+                if($mac){
+                    Cookie::queue('tracking_id', $mac->id, '613200');
+                }else{
+                    
+                    $tracking_id= DB::table('mac_and_ip')->insertGetId([
+                        'ip'=>$ip,
+                        'mac'=>''
+                    ]);
+                    Cookie::queue('tracking_id', $tracking_id, '613200');
+                } 
+        }
         $data =[];
         $data['short_link'] = Session::get('short_link');
         return view('home.home', $data);
