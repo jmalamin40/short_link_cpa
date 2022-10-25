@@ -15,18 +15,18 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
-Route::get('/', [HomeController::class, 'home']);
-Route::get('/login', [HomeController::class, 'home']);
-Route::get('/register', [HomeController::class, 'home']);
+// Route::get('/', [HomeController::class, 'home']);
+// Route::get('/login', [HomeController::class, 'home']);
+// Route::get('/register', [HomeController::class, 'home']);
 
 
-Route::post('/generator-link', [HomeController::class, 'generator']);
+// Route::post('/generator-link', [HomeController::class, 'generator']);
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [CustomerController::class, 'index'])->name('home');
-Route::get('/Dashboard', [CustomerController::class, 'index'])->name('home');
-Route::get('/logout', [CustomerController::class, 'index'])->name('home');
+// Route::get('/home', [CustomerController::class, 'index'])->name('home');
+// Route::get('/Dashboard', [CustomerController::class, 'index'])->name('home');
+// Route::get('/logout', [CustomerController::class, 'index'])->name('home');
 
 Route::get('/{link}', [HomeController::class, 'home_redirect']);
 
