@@ -43,7 +43,9 @@ class HomeController extends Controller
                 
                 $tracking_id= DB::table('mac_and_ip')->insertGetId([
                     'ip'=>$ip,
-                    'mac'=>''
+                    'mac'=>'',
+                    'created_at'=>date('Y-m-d H:i:s'),
+                    'updated_at'=>date('Y-m-d H:i:s')
                 ]);
                 Cookie::queue('tracking_id', $tracking_id, '613200');
             } 
